@@ -1,4 +1,4 @@
-// Form validation and functionality for Texas Courtroom Assistance Program
+// Form validation and functionality for Courtroom Assistance Program
 
 document.addEventListener('DOMContentLoaded', function() {
     const form = document.getElementById('contact_form');

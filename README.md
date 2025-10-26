@@ -1,7 +1,7 @@
-# Texas Courtroom Assistance Program Website
+# Courtroom Assistance Program Website
 
 ## Project Overview
-Modern, responsive website for the Texas Courtroom Assistance Program (CAP), built using Tailwind CSS and Swiper.js. This site provides free legal assistance information to parents and guardians in Texas.
+Modern, responsive website for the Courtroom Assistance Program (CAP), built using Tailwind CSS and Swiper.js. This site provides free legal assistance information to parents and guardians in Texas.
 
 ## Technology Stack
 - **HTML5** - Semantic markup
@@ -100,7 +100,7 @@ Content to extract from `txcap-website-wpengine/txcap.org/`:
 9. **district-clerk-offices-near-houston-texas.html**
 
 ### Legal Pages
-1. **privacy-policy.html** - Replace "Child Custody Legal Aid" with "Texas Courtroom Assistance Program"
+1. **privacy-policy.html** - Replace "Child Custody Legal Aid" with "Courtroom Assistance Program"
 2. **terms-of-use.html** - Same replacement
 
 ## Content Extraction Notes
