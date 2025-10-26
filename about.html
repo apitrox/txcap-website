@@ -51,12 +51,12 @@
     <!-- Header -->
     <header class="sticky top-0 z-50 bg-white shadow-md">
         <!-- Top Section with Logo -->
-        <div class="container-custom py-6">
+        <div class="container-custom py-3">
             <div class="flex justify-between items-center">
                 <!-- Logo -->
                 <div class="flex items-center">
                     <a href="index.html">
-                        <img src="images/logo.png" alt="Courtroom Assistance Program" class="h-16 md:h-20">
+                        <img src="images/logo.png" alt="Courtroom Assistance Program" class="h-14 md:h-16">
                     </a>
                     <div class="ml-4 pl-4 border-l border-gray-400">
                         <p class="logo-desc">
@@ -65,28 +65,53 @@
                         </p>
                     </div>
                 </div>
+                <!-- Hamburger Menu Button -->
+                <div class="hamburger md:hidden" onclick="toggleMobileMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
         </div>
         
         <!-- Navigation -->
         <nav class="bg-primary">
             <div class="container-custom">
-                <ul class="flex flex-wrap justify-center items-center">
-                    <li><a href="index.html" class="nav-link block px-5 py-6 text-white hover:bg-accent transition-colors">Home</a></li>
-                    <li><a href="about.html" class="nav-link block px-5 py-6 text-white hover:bg-accent transition-colors">About</a></li>
-                    <li><a href="blog.html" class="nav-link block px-5 py-6 text-white hover:bg-accent transition-colors">Blog</a></li>
-                    <li><a href="faq.html" class="nav-link block px-5 py-6 text-white hover:bg-accent transition-colors">FAQs</a></li>
+                <!-- Desktop Navigation -->
+                <ul class="desktop-nav flex flex-wrap justify-center items-center">
+                    <li><a href="index.html" class="nav-link block px-5 py-3 text-white hover:bg-accent transition-colors">Home</a></li>
+                    <li><a href="about.html" class="nav-link block px-5 py-3 text-white hover:bg-accent transition-colors">About</a></li>
+                    <li><a href="blog.html" class="nav-link block px-5 py-3 text-white hover:bg-accent transition-colors">Blog</a></li>
+                    <li><a href="faq.html" class="nav-link block px-5 py-3 text-white hover:bg-accent transition-colors">FAQs</a></li>
                     <li class="relative group">
-                        <a href="topics.html" class="nav-link block px-5 py-6 text-white hover:bg-accent transition-colors">Topics</a>
+                        <a href="topics.html" class="nav-link block px-5 py-3 text-white hover:bg-accent transition-colors">Topics</a>
                         <ul class="absolute hidden group-hover:block bg-secondary shadow-lg min-w-[300px] z-50">
                             <li><a href="district-clerk-offices-near-houston-texas.html" class="block px-5 py-4 text-white hover:bg-accent transition-colors">District Clerk offices near Houston, Texas</a></li>
                         </ul>
                     </li>
-                    <li><a href="contact.html" class="nav-link block px-5 py-6 text-white hover:bg-accent transition-colors">Contact Us</a></li>
+                    <li><a href="contact.html" class="nav-link block px-5 py-3 text-white hover:bg-accent transition-colors">Contact Us</a></li>
                 </ul>
+                <!-- Mobile Navigation -->
+                <div class="mobile-menu" id="mobileMenu">
+                    <ul>
+                        <li><a href="index.html" class="nav-link block px-5 py-3 text-white hover:bg-accent transition-colors">Home</a></li>
+                        <li><a href="about.html" class="nav-link block px-5 py-3 text-white hover:bg-accent transition-colors">About</a></li>
+                        <li><a href="blog.html" class="nav-link block px-5 py-3 text-white hover:bg-accent transition-colors">Blog</a></li>
+                        <li><a href="faq.html" class="nav-link block px-5 py-3 text-white hover:bg-accent transition-colors">FAQs</a></li>
+                        <li><a href="topics.html" class="nav-link block px-5 py-3 text-white hover:bg-accent transition-colors">Topics</a></li>
+                        <li><a href="district-clerk-offices-near-houston-texas.html" class="nav-link block px-5 py-3 pl-8 text-white hover:bg-accent transition-colors">District Clerk offices</a></li>
+                        <li><a href="contact.html" class="nav-link block px-5 py-3 text-white hover:bg-accent transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('active');
+        }
+    </script>
 
     <!-- Main Content -->
     <main class="container-custom py-8">
