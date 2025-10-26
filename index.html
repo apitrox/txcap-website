@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="CAP - Courtroom Assistance Program provides free attorneys to parents and guardians who have a legal situation involving a child.">
+    <title>Texas Courtroom Assistance Program - Free Legal Assistance</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="images/favicon.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@400;500;700&family=Raleway:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#152744',
+                        secondary: '#135280',
+                        accent: '#113a58',
+                        textPrimary: '#152744',
+                        lightGray: '#EEE',
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'Lato', 'Open Sans', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                        raleway: ['Raleway', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-lightGray">
+
+    <!-- Header -->
+    <header class="bg-white">
+        <!-- Top Section with Logo -->
+        <div class="container-custom py-6">
+            <div class="flex justify-between items-center">
+                <!-- Logo -->
+                <div class="flex items-center">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="Texas Courtroom Assistance Program" class="h-16 md:h-20">
+                    </a>
+                    <div class="ml-4 pl-4 border-l border-gray-400">
+                        <p class="logo-desc">
+                            A program provided by<br>
+                            <span class="font-bold">America Family Law Center</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation -->
+        <nav class="bg-primary">
+            <div class="container-custom">
+                <ul class="flex flex-wrap justify-center items-center">
+                    <li><a href="index.html" class="nav-link block px-5 py-6 text-white hover:bg-accent transition-colors">Home</a></li>
+                    <li><a href="about.html" class="nav-link block px-5 py-6 text-white hover:bg-accent transition-colors">About</a></li>
+                    <li><a href="blog.html" class="nav-link block px-5 py-6 text-white hover:bg-accent transition-colors">Blog</a></li>
+                    <li><a href="faq.html" class="nav-link block px-5 py-6 text-white hover:bg-accent transition-colors">FAQs</a></li>
+                    <li class="relative group">
+                        <a href="topics.html" class="nav-link block px-5 py-6 text-white hover:bg-accent transition-colors">Topics</a>
+                        <ul class="absolute hidden group-hover:block bg-secondary shadow-lg min-w-[300px] z-50">
+                            <li><a href="district-clerk-offices-near-houston-texas.html" class="block px-5 py-4 text-white hover:bg-accent transition-colors">District Clerk offices near Houston, Texas</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container-custom py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            
+            <!-- Sidebar -->
+            <aside class="lg:col-span-4 order-2 lg:order-1">
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <h3 class="text-xl font-heading font-bold text-primary mb-4">Contact Us</h3>
+                    <p class="text-center text-lg font-semibold mb-4">We can help!</p>
+                    <p class="text-center mb-4">Send us a message using the form below</p>
+                    
+                    <form id="contact_form" class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Name <span class="text-red-600">*</span></label>
+                            <div class="grid grid-cols-2 gap-2">
+                                <input type="text" id="First_Name" placeholder="First name" class="form-input" required>
+                                <input type="text" id="Last_Name" placeholder="Last name" class="form-input" required>
+                            </div>
+                            <div id="name-error" class="error-message hidden"></div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Phone Number <span class="text-red-600">*</span></label>
+                            <input type="tel" id="Phone" placeholder="(555) 123-4567" class="form-input" required>
+                            <div id="phone-error" class="error-message hidden"></div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">Email</label>
+                            <input type="email" id="Email" placeholder="name@example.com" class="form-input">
+                            <div id="email-error" class="error-message hidden"></div>
+                        </div>
+                        
+                        <div>
+                            <label class="block text-sm font-semibold mb-2">How can we help?</label>
+                            <textarea id="Situation" rows="5" class="form-input" placeholder="Describe your situation (30-500 characters)"></textarea>
+                            <div class="flex justify-between items-center mt-1">
+                                <div id="situation-error" class="error-message hidden"></div>
+                                <span id="char-count" class="text-xs text-gray-500">0/500</span>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" id="submit-btn" class="btn-submit w-full" disabled>Send</button>
+                    </form>
+                    
+                    <div id="success-message" class="success-message hidden mt-4">
+                        <p class="font-semibold">Thank you for contacting us!</p>
+                        <p class="text-sm">We have received your message and will respond as soon as possible.</p>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Main Content Area -->
+            <div class="lg:col-span-8 order-1 lg:order-2">
+                
+                <!-- Slider -->
+                <div class="swiper mySwiper mb-8 rounded-lg overflow-hidden shadow-md">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img src="images/slider_pic_1.png" alt="Texas Courtroom Assistance Program" class="w-full">
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+
+                <!-- Recent Posts Section -->
+                <section class="content-area mb-8">
+                    <h2 class="text-2xl font-heading font-bold text-primary mb-4">Courtroom Assistance Program Articles</h2>
+                    <ul class="space-y-2">
+                        <li><a href="valid-reasons-deny-visitation.html" class="text-secondary hover:underline">What Are Valid Reasons to Deny Visitation?</a></li>
+                        <li><a href="determining-child-custody-texas.html" class="text-secondary hover:underline">Determining Child Custody in Texas</a></li>
+                        <li><a href="establish-visitation-texas-children.html" class="text-secondary hover:underline">How to Establish Visitation in Texas with Your Children</a></li>
+                        <li><a href="abbott-signs-sweeping-child-welfare-overhaul-law.html" class="text-secondary hover:underline">Abbott Signs Sweeping Child Welfare Overhaul Into Law</a></li>
+                        <li><a href="get-custody-children-texas.html" class="text-secondary hover:underline">How to Get Custody of Your Children In Texas</a></li>
+                        <li><a href="understanding-fathers-rights-texas.html" class="text-secondary hover:underline">Understanding Father's Rights in Texas</a></li>
+                        <li><a href="child-custody-texas-parent-wants-move-child-state.html" class="text-secondary hover:underline">Child Custody in Texas: When a Parent Wants to Move a Child Out of State</a></li>
+                        <li><a href="child-custody-types-conservatorship-texas.html" class="text-secondary hover:underline">Child Custody and Types of Conservatorship in Texas</a></li>
+                    </ul>
+                </section>
+
+                <!-- Main Content -->
+                <section class="content-area">
+                    <h1 class="text-3xl font-heading font-bold text-primary mb-4">Courtroom Assistance Program</h1>
+                    <p class="mb-4">CAP provides a free attorney and free assistance to parents and guardians who have a qualified legal situation involving a child. View our <a href="faq.html" class="text-secondary hover:underline">Frequently Asked Questions (FAQs)</a> for more information.</p>
+                    <p class="mb-4">If you are having issues involving visitation, custody, possession or access to your child, CAP may be able to help. CAP specializes in helping fathers, mothers, grandparents and guardians resolve these types of situations.</p>
+                    
+                    <hr class="my-6 border-gray-300">
+                    
+                    <div class="flex items-start gap-6">
+                        <div>
+                            <img src="images/logo.png" alt="Courtroom Assistance Program" class="w-48">
+                        </div>
+                        <div>
+                            <p class="font-semibold text-lg mb-2"><a href="index.html" class="text-primary hover:underline">Courtroom Assistance Program</a></p>
+                            <p><em>We can help!</em></p>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-primary text-white py-8 mt-12">
+        <div class="container-custom">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 mb-6">
+                <div class="md:col-span-3">
+                    <a href="index.html">
+                        <img src="images/logo.png" alt="Courtroom Assistance Program" class="w-48 filter brightness-0 invert">
+                    </a>
+                </div>
+                <div class="md:col-span-9">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <p class="space-y-2">
+                                <a href="index.html" class="block hover:underline">Home</a>
+                                <a href="about.html" class="block hover:underline">About</a>
+                                <a href="blog.html" class="block hover:underline">Blog</a>
+                                <a href="faq.html" class="block hover:underline">FAQs</a>
+                                <a href="topics.html" class="block hover:underline">Topics</a>
+                            </p>
+                        </div>
+                    </div>
+                    <hr class="my-4 border-gray-600">
+                    <p class="text-sm">
+                        Courtroom Assistance Program is a program provided by the America Family Law Center, a 501(c)(3) nonprofit charitable organization.
+                        This site is for general informational purposes only.  
+                        The information on this site is not legal advice and should not be used in place of legal advice. 
+                        Consult a lawyer for legal advice.
+                    </p>
+                </div>
+            </div>
+            <p class="text-center text-sm border-t border-gray-600 pt-4">
+                Copyright &copy; 2009 - 2025. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="assets/js/script.js"></script>
+    
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 7000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+    </script>
+</body>
+</html>
