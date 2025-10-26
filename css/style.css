@@ -51,58 +51,6 @@ h4, h5 {
     font-size: 9px;
 }
 
-/* Hamburger menu styling */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    padding: 10px;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 3px 0;
-    transition: 0.3s;
-}
-
-.mobile-menu {
-    display: none;
-}
-
-.mobile-menu.active {
-    display: block;
-}
-
-@media (max-width: 768px) {
-    .desktop-nav {
-        display: none;
-    }
-    
-    .hamburger {
-        display: flex;
-    }
-    
-    .mobile-menu {
-        background-color: #152744;
-    }
-    
-    .mobile-menu ul {
-        flex-direction: column;
-    }
-    
-    .mobile-menu li {
-        width: 100%;
-        border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    
-    .mobile-menu a {
-        display: block;
-        width: 100%;
-    }
-}
-
 /* Navigation */
 .nav-link {
     transition: background-color 0.3s ease, color 0.3s ease;
