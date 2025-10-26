@@ -49,7 +49,7 @@
 <body class="bg-lightGray">
 
     <!-- Header -->
-    <header class="bg-white">
+    <header class="sticky top-0 z-50 bg-white shadow-md">
         <!-- Top Section with Logo -->
         <div class="container-custom py-6">
             <div class="flex justify-between items-center">
@@ -93,16 +93,22 @@
         <div class="max-w-5xl mx-auto">
                 
                 <!-- Slider -->
-                <div class="swiper mySwiper mb-8 rounded-lg overflow-hidden shadow-md">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="images/slider_pic_1.png" alt="Texas Courtroom Assistance Program" class="w-full">
+                <section class="bg-white py-2">
+                    <div class="flex justify-center px-4">
+                        <div class="swiper mySwiper rounded-lg overflow-hidden shadow-xl" style="max-width: 538px; width: 100%;">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="relative flex items-center justify-center" style="height: 182px;">
+                                        <img src="images/slider_pic_1.png" alt="Texas Courtroom Assistance Program" class="absolute inset-0 w-full h-full object-contain">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
                         </div>
                     </div>
-                    <div class="swiper-pagination"></div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
-                </div>
+                </section>
 
                 <!-- Recent Posts Section -->
                 <section class="content-area mb-8">
