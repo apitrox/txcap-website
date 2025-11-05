@@ -109,7 +109,121 @@
     <main class="container-custom py-8">
         <div class="max-w-5xl mx-auto">
                 
-                <!-- Hero Image --><section class="bg-white"><div class="hero-image-container"><div class="hero-image-wrapper"><img src="images/slider_pic.png" alt="Courtroom Assistance Program" class="hero-static-image"></div></div></section>
+                <!-- Hero Image -->
+                <section class="bg-white">
+                    <div class="hero-image-container">
+                        <div class="hero-image-wrapper">
+                            <img src="images/slider_pic.png" alt="Courtroom Assistance Program" class="hero-static-image">
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Contact Form Section -->
+                <section class="content-area mt-8">
+                    <h1 class="text-3xl font-heading font-bold text-primary mb-6 text-center">Contact Us</h1>
+                    
+                    <div class="max-w-2xl mx-auto">
+                        <div id="successMessage" class="hidden bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6 text-center">
+                            Thank you for reaching out to us.
+                        </div>
+
+                        <form id="contactForm" class="space-y-6">
+                            <!-- First Name -->
+                            <div>
+                                <label for="firstName" class="block text-sm font-semibold text-gray-700 mb-2">
+                                    First Name <span class="text-red-600">*</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="firstName" 
+                                    name="firstName"
+                                    maxlength="30"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                                    required
+                                >
+                                <p class="text-red-600 text-sm mt-1 hidden" id="firstNameError"></p>
+                            </div>
+
+                            <!-- Last Name -->
+                            <div>
+                                <label for="lastName" class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Last Name <span class="text-red-600">*</span>
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="lastName" 
+                                    name="lastName"
+                                    maxlength="30"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                                    required
+                                >
+                                <p class="text-red-600 text-sm mt-1 hidden" id="lastNameError"></p>
+                            </div>
+
+                            <!-- Phone Number -->
+                            <div>
+                                <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Phone Number <span class="text-red-600">*</span>
+                                </label>
+                                <input 
+                                    type="tel" 
+                                    id="phone" 
+                                    name="phone"
+                                    placeholder="(555) 555-5555"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                                    required
+                                >
+                                <p class="text-red-600 text-sm mt-1 hidden" id="phoneError"></p>
+                            </div>
+
+                            <!-- Email (Optional) -->
+                            <div>
+                                <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">
+                                    Email
+                                </label>
+                                <input 
+                                    type="email" 
+                                    id="email" 
+                                    name="email"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                                >
+                                <p class="text-red-600 text-sm mt-1 hidden" id="emailError"></p>
+                            </div>
+
+                            <!-- Message -->
+                            <div>
+                                <label for="message" class="block text-sm font-semibold text-gray-700 mb-2">
+                                    How can we help? <span class="text-red-600">*</span>
+                                </label>
+                                <textarea 
+                                    id="message" 
+                                    name="message"
+                                    rows="6"
+                                    minlength="20"
+                                    maxlength="500"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent"
+                                    required
+                                ></textarea>
+                                <div class="flex justify-between items-start mt-1">
+                                    <p class="text-red-600 text-sm hidden" id="messageError"></p>
+                                    <p class="text-gray-500 text-sm ml-auto"><span id="charCount">0</span>/500</p>
+                                </div>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="text-center">
+                                <button 
+                                    type="submit" 
+                                    id="submitBtn"
+                                    class="bg-secondary text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed hover:bg-primary"
+                                    disabled
+                                >
+                                    Send Message
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
 
         </div>
     </main>
@@ -164,6 +278,157 @@
     <script>
         // Set current year
         document.getElementById('current-year').textContent = new Date().getFullYear();
+
+        // Form validation
+        const form = document.getElementById('contactForm');
+        const firstName = document.getElementById('firstName');
+        const lastName = document.getElementById('lastName');
+        const phone = document.getElementById('phone');
+        const email = document.getElementById('email');
+        const message = document.getElementById('message');
+        const submitBtn = document.getElementById('submitBtn');
+        const successMessage = document.getElementById('successMessage');
+        const charCount = document.getElementById('charCount');
+
+        // Profanity word list
+        const profanityWords = ['fuck', 'shit', 'damn', 'bitch', 'asshole', 'bastard', 'crap', 'piss', 'dick', 'cock', 'pussy', 'slut', 'whore', 'fag', 'nigger', 'cunt'];
+
+        // Phone number formatting
+        phone.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 10) value = value.slice(0, 10);
+            
+            if (value.length >= 6) {
+                e.target.value = `(${value.slice(0, 3)}) ${value.slice(3, 6)}-${value.slice(6)}`;
+            } else if (value.length >= 3) {
+                e.target.value = `(${value.slice(0, 3)}) ${value.slice(3)}`;
+            } else if (value.length > 0) {
+                e.target.value = `(${value}`;
+            }
+            validateForm();
+        });
+
+        // Character count for message
+        message.addEventListener('input', function() {
+            charCount.textContent = this.value.length;
+            validateForm();
+        });
+
+        // Validate on input
+        [firstName, lastName, email, message].forEach(field => {
+            field.addEventListener('input', validateForm);
+        });
+
+        function validateName(value, fieldName) {
+            if (value.length < 1) {
+                return `${fieldName} must be at least 1 character`;
+            }
+            if (value.length > 30) {
+                return `${fieldName} must not exceed 30 characters`;
+            }
+            return null;
+        }
+
+        function validatePhone(value) {
+            const digits = value.replace(/\D/g, '');
+            if (digits.length !== 10) {
+                return 'Phone number must be 10 digits';
+            }
+            return null;
+        }
+
+        function validateEmail(value) {
+            if (value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                return 'Please enter a valid email address';
+            }
+            return null;
+        }
+
+        function validateMessage(value) {
+            if (value.length < 20) {
+                return 'Message must be at least 20 characters';
+            }
+            if (value.length > 500) {
+                return 'Message must not exceed 500 characters';
+            }
+            
+            // Check for profanity
+            const lowerValue = value.toLowerCase();
+            for (let word of profanityWords) {
+                if (lowerValue.includes(word)) {
+                    return 'Message contains inappropriate language';
+                }
+            }
+            return null;
+        }
+
+        function showError(elementId, errorMessage) {
+            const errorElement = document.getElementById(elementId);
+            if (errorMessage) {
+                errorElement.textContent = errorMessage;
+                errorElement.classList.remove('hidden');
+            } else {
+                errorElement.classList.add('hidden');
+            }
+        }
+
+        function validateForm() {
+            let isValid = true;
+
+            // Validate first name
+            const firstNameError = validateName(firstName.value.trim(), 'First name');
+            showError('firstNameError', firstNameError);
+            if (firstNameError) isValid = false;
+
+            // Validate last name
+            const lastNameError = validateName(lastName.value.trim(), 'Last name');
+            showError('lastNameError', lastNameError);
+            if (lastNameError) isValid = false;
+
+            // Validate phone
+            const phoneError = validatePhone(phone.value);
+            showError('phoneError', phoneError);
+            if (phoneError) isValid = false;
+
+            // Validate email (optional)
+            const emailError = validateEmail(email.value.trim());
+            showError('emailError', emailError);
+            if (emailError) isValid = false;
+
+            // Validate message
+            const messageError = validateMessage(message.value.trim());
+            showError('messageError', messageError);
+            if (messageError) isValid = false;
+
+            // Enable/disable submit button
+            submitBtn.disabled = !isValid;
+            return isValid;
+        }
+
+        // Handle form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            if (validateForm()) {
+                // Clear form fields
+                form.reset();
+                charCount.textContent = '0';
+                
+                // Show success message
+                successMessage.classList.remove('hidden');
+                
+                // Scroll to success message
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                }, 5000);
+                
+                // Disable submit button again
+                submitBtn.disabled = true;
+            }
+        });
     </script>
 </body>
 </html>
