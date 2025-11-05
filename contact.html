@@ -17,10 +17,7 @@
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Swiper CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    
+
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
     
@@ -112,21 +109,7 @@
     <main class="container-custom py-8">
         <div class="max-w-5xl mx-auto">
                 
-                <!-- Slider -->
-                <section class="bg-white">
-                    <div class="flex justify-center">
-                        <div class="swiper mySwiper overflow-hidden" style="max-width: 650px; width: 100%;">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <img src="images/slider_pic.png" alt="Courtroom Assistance Program" class="w-full h-auto">
-                                </div>
-                            </div>
-                            <div class="swiper-pagination"></div>
-                            <div class="swiper-button-next"></div>
-                            <div class="swiper-button-prev"></div>
-                        </div>
-                    </div>
-                </section>
+                <!-- Hero Image --><section class="bg-white"><div class="hero-image-container"><div class="hero-image-wrapper"><img src="images/slider_pic.png" alt="Courtroom Assistance Program" class="hero-static-image"></div></div></section>
 
         </div>
     </main>
@@ -175,32 +158,8 @@
             </div>
         </div>
     </footer>
-
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    
     <!-- Custom JavaScript -->
     <script src="assets/js/script.js"></script>
-    
-    <!-- Initialize Swiper -->
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 1,
-            spaceBetween: 30,
-            loop: true,
-            autoplay: {
-                delay: 7000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev",
-            },
-        });
         
         // Set current year
         document.getElementById('current-year').textContent = new Date().getFullYear();

@@ -1,0 +1,65 @@
+/* Custom Styles for txcap-website */
+
+/* Static Hero Image with Blurred Edges */
+.hero-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    max-width: 650px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.hero-image-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-image-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 60px 20px rgba(238, 238, 238, 0.9);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.hero-static-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Container styles */
+.container-custom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Content area spacing */
+.content-area {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Roboto Font Override for specific pages */
+body.font-roboto,
+body.font-roboto * {
+    font-family: 'Roboto', 'Lato', 'Open Sans', sans-serif !important;
+}
+
+body.font-roboto h1,
+body.font-roboto h2,
+body.font-roboto h3,
+body.font-roboto h4,
+body.font-roboto h5,
+body.font-roboto h6 {
+    font-family: 'Roboto', sans-serif !important;
+}
